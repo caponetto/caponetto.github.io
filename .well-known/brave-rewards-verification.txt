@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: caponetto.github.io
+Token: 8b838d13e15d3f79603da275a1fb937e22d0c00b5fc2f8e744fcac71fdff073b
