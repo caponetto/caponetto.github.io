@@ -1,1 +1,1 @@
-dashbuilder={mode:"EDITOR"};
+dashbuilder = { mode: "EDITOR" };
