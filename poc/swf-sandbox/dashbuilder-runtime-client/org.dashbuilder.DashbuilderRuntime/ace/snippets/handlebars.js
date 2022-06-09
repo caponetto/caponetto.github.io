@@ -1,1 +1,0 @@
-define("ace/snippets/handlebars",["require","exports","module"],(function(e,n,s){n.snippetText="",n.scope="handlebars"}));
