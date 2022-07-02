@@ -1,1 +1,215 @@
-"use strict";(self.webpackChunkpersonal_webapp=self.webpackChunkpersonal_webapp||[]).push([[209],{5179:(e,t,n)=>{n.d(t,{x:()=>d});var l=n(5893),o=n(6628),i=n(5725),s=n(8396),a=n(7294),c=n(4056),r=n(549);function d(e){const{t}=(0,c.$)(),n=(0,s.Z)("(max-width:600px)"),d=(0,a.useCallback)((e=>t(`literal:${e}`)),[t]);return(0,l.jsx)(o.Z,{in:!0,timeout:e.fadeTime,children:(0,l.jsxs)(i.ZP,{container:!0,rowSpacing:n?1:2,columnSpacing:1,children:[[...e.keywordSelection.selectionMap.keys()].sort(((e,t)=>d(e).localeCompare(d(t)))).map((t=>(0,l.jsx)(i.ZP,{item:!0,children:(0,l.jsx)(r.m,{label:d(t),color:"success",variant:e.keywordSelection.selectionMap.get(t)?"filled":"outlined",size:n?"small":"medium",onClick:()=>e.keywordSelection.onToggleSelection(t)})},`keyword-chip-${t}`))),(0,l.jsx)(o.Z,{in:e.keywordSelection.isAnySelected,timeout:300,children:(0,l.jsx)(i.ZP,{item:!0,sx:{display:e.keywordSelection.isAnySelected?"block":"none"},children:(0,l.jsx)(r.m,{label:t("literal:showAll"),color:"secondary",variant:"filled",size:n?"small":"medium",onClick:e.keywordSelection.onClearSelection})})})]})})}},3355:(e,t,n)=>{n.d(t,{T:()=>o});var l=n(7294);function o(e,t){return(0,l.useMemo)((()=>(t.isAnySelected?e.filter((e=>e.keywordKeys.some((e=>t.selectionMap.get(e))))):e).sort(((e,t)=>t.releaseDate.getTime()-e.releaseDate.getTime()))),[t.isAnySelected,t.selectionMap,e])}},2391:(e,t,n)=>{n.d(t,{C:()=>s});var l,o=n(7294),i=n(6974);function s(...e){const t=(0,i.s0)(),n=function(e){const t=(0,i.TH)(),n=new URLSearchParams(t.search).get(e);if(n)return decodeURIComponent(n)}(l.KEYWORDS)?.split(",")??[],[s,a]=(0,o.useState)((()=>{const t=function(...e){const t=new Map;return e.forEach((e=>{e.reduce(((e,t)=>e.concat(t.keywordKeys)),[]).forEach((e=>{t.has(e)||t.set(e,!1)}))})),t}(...e);return n.forEach((e=>{t.has(e)&&t.set(e,!0)})),t})),[c,r]=(0,o.useState)((()=>[...s.entries()].filter((([,e])=>e)).map((([e])=>e)))),d=(0,o.useMemo)((()=>c.length>0),[c]);return(0,o.useEffect)((()=>{var e;t({search:d?"?"+(e=c,`${l.KEYWORDS}=${encodeURIComponent(e.join(","))}`):""},{replace:!0})}),[t,c,d]),{selectionMap:s,onToggleSelection:e=>{if(!s.has(e))return;const t=!!s.get(e);a((n=>new Map([...n.entries(),[e,!t]]))),r((n=>t?n.filter((t=>t!==e)):[...n,e]))},onClearSelection:()=>{a((e=>{const t=new Map(e);return c.forEach((e=>t.set(e,!1))),t})),r([])},isAnySelected:d}}!function(e){e.KEYWORDS="k"}(l||(l={}))},4209:(e,t,n)=>{n.r(t),n.d(t,{default:()=>f});var l=n(5893),o=n(2658),i=n(4056),s=n(8616),a=n(5179),c=n(2079),r=n(1431),d=n(3355),m=n(2391),u=n(7514);function f(){const e=(0,r.q)(),t=(0,u.t)(0),{t:n}=(0,i.$)(),f=(0,m.C)(e.data.talk.lives,e.data.talk.conferences),p=(0,d.T)(e.data.talk.lives,f),h=(0,d.T)(e.data.talk.conferences,f);return(0,l.jsxs)(c.T3,{name:"talk",children:[(0,l.jsx)(c.mr,{fadeTime:500,children:(0,l.jsx)(o.Z,{component:"div",sx:{mb:"30px",fontSize:{sm:"16px",lg:"18px"}},children:(0,l.jsxs)(s.c,{i18nKey:"talk:header",children:["Here you can find some of my ",(0,l.jsx)("strong",{children:"talks"})]})})}),t&&(0,l.jsx)(a.x,{fadeTime:500,keywordSelection:f}),t&&p.length>0&&(0,l.jsx)(c.Wt,{title:n("literal:lives"),fadeTime:1e3,keywordSelection:f,mediaList:p}),t&&h.length>0&&(0,l.jsx)(c.Wt,{title:n("literal:conferences"),fadeTime:1500,keywordSelection:f,mediaList:h})]})}}}]);
+"use strict";
+(self["webpackChunkpersonal_webapp"] = self["webpackChunkpersonal_webapp"] || []).push([[209],{
+
+/***/ 5179:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "x": () => (/* reexport */ KeywordChips)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./node_modules/@mui/material/Fade/Fade.js
+var Fade = __webpack_require__(6628);
+// EXTERNAL MODULE: ./node_modules/@mui/material/Grid/Grid.js + 2 modules
+var Grid = __webpack_require__(5725);
+// EXTERNAL MODULE: ./node_modules/@mui/material/useMediaQuery/useMediaQuery.js
+var useMediaQuery = __webpack_require__(8396);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/react-i18next/dist/es/useTranslation.js + 2 modules
+var useTranslation = __webpack_require__(4056);
+// EXTERNAL MODULE: ./src/components/chip/StaticChip.tsx
+var StaticChip = __webpack_require__(549);
+;// CONCATENATED MODULE: ./src/components/chip/KeywordChips.tsx
+
+
+
+
+
+
+
+function KeywordChips(props) {
+    const { t } = (0,useTranslation/* useTranslation */.$)();
+    const isSmall = (0,useMediaQuery/* default */.Z)((theme) => theme.breakpoints.down("sm"));
+    const resolveLiteral = (0,react.useCallback)((key) => t(`literal:${key}`), [t]);
+    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime, children: (0,jsx_runtime.jsxs)(Grid/* default */.ZP, { container: true, rowSpacing: isSmall ? 1 : 2, columnSpacing: 1, children: [[...props.keywordSelection.selectionMap.keys()]
+                    .sort((a, b) => resolveLiteral(a).localeCompare(resolveLiteral(b)))
+                    .map((keywordKey) => ((0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, children: (0,jsx_runtime.jsx)(StaticChip/* StaticChip */.m, { label: resolveLiteral(keywordKey), color: "success", variant: props.keywordSelection.selectionMap.get(keywordKey) ? "filled" : "outlined", size: isSmall ? "small" : "medium", onClick: () => props.keywordSelection.onToggleSelection(keywordKey) }) }, `keyword-chip-${keywordKey}`))), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: props.keywordSelection.isAnySelected, timeout: 300, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, sx: { display: props.keywordSelection.isAnySelected ? "block" : "none" }, children: (0,jsx_runtime.jsx)(StaticChip/* StaticChip */.m, { label: t("literal:showAll"), color: "secondary", variant: "filled", size: isSmall ? "small" : "medium", onClick: props.keywordSelection.onClearSelection }) }) })] }) }));
+}
+
+;// CONCATENATED MODULE: ./src/components/chip/index.tsx
+
+
+
+/***/ }),
+
+/***/ 3355:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "T": () => (/* binding */ useFilteredMedias)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7294);
+
+function useFilteredMedias(items, keywordSelection) {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+        const filteredItems = keywordSelection.isAnySelected
+            ? items.filter((item) => item.keywordKeys.some((keyword) => keywordSelection.selectionMap.get(keyword)))
+            : items;
+        return filteredItems.sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime());
+    }, [keywordSelection.isAnySelected, keywordSelection.selectionMap, items]);
+}
+
+
+/***/ }),
+
+/***/ 2391:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "C": () => (/* binding */ useKeywordSelection)
+});
+
+// UNUSED EXPORTS: buildInitialSelectionMap
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/react-router/index.js
+var react_router = __webpack_require__(6974);
+;// CONCATENATED MODULE: ./src/hooks/useQueryParam.tsx
+
+var QueryParams;
+(function (QueryParams) {
+    QueryParams["KEYWORDS"] = "k";
+})(QueryParams || (QueryParams = {}));
+function useQueryParam(name) {
+    const location = (0,react_router/* useLocation */.TH)();
+    const urlSearchParams = new URLSearchParams(location.search);
+    const value = urlSearchParams.get(name);
+    if (!value) {
+        return;
+    }
+    return decodeURIComponent(value);
+}
+function useQueryParamKeywords() {
+    return useQueryParam(QueryParams.KEYWORDS)?.split(",") ?? [];
+}
+function prepareKeywordsQueryParam(keywords) {
+    return `${QueryParams.KEYWORDS}=${encodeURIComponent(keywords.join(","))}`;
+}
+
+;// CONCATENATED MODULE: ./src/hooks/useKeywordSelection.tsx
+
+
+
+function buildInitialSelectionMap(...arrayOfArrays) {
+    const initialSelectionMap = new Map();
+    arrayOfArrays.forEach((items) => {
+        items
+            .reduce((keywordArray, m) => keywordArray.concat(m.keywordKeys), [])
+            .forEach((keyword) => {
+            if (!initialSelectionMap.has(keyword)) {
+                initialSelectionMap.set(keyword, false);
+            }
+        });
+    });
+    return initialSelectionMap;
+}
+function useKeywordSelection(...arrayOfArrays) {
+    const navigate = (0,react_router/* useNavigate */.s0)();
+    const queryParamKeywords = useQueryParamKeywords();
+    const [selectionMap, setSelectionMap] = (0,react.useState)(() => {
+        const map = buildInitialSelectionMap(...arrayOfArrays);
+        queryParamKeywords.forEach((k) => {
+            if (map.has(k)) {
+                map.set(k, true);
+            }
+        });
+        return map;
+    });
+    const [selected, setSelected] = (0,react.useState)(() => [...selectionMap.entries()].filter(([, isSelected]) => isSelected).map(([keyword]) => keyword));
+    const isAnySelected = (0,react.useMemo)(() => selected.length > 0, [selected]);
+    const onToggleSelection = (keyword) => {
+        if (!selectionMap.has(keyword)) {
+            return;
+        }
+        const isSelected = !!selectionMap.get(keyword);
+        setSelectionMap((prevState) => new Map([...prevState.entries(), [keyword, !isSelected]]));
+        setSelected((prevState) => (isSelected ? prevState.filter((k) => k !== keyword) : [...prevState, keyword]));
+    };
+    const onClearSelection = () => {
+        setSelectionMap((prevState) => {
+            const newMap = new Map(prevState);
+            selected.forEach((keyword) => newMap.set(keyword, false));
+            return newMap;
+        });
+        setSelected([]);
+    };
+    (0,react.useEffect)(() => {
+        navigate({
+            search: isAnySelected ? `?${prepareKeywordsQueryParam(selected)}` : "",
+        }, { replace: true });
+    }, [navigate, selected, isAnySelected]);
+    return {
+        selectionMap,
+        onToggleSelection,
+        onClearSelection,
+        isAnySelected,
+    };
+}
+
+
+/***/ }),
+
+/***/ 4209:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TalkPage)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2658);
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4056);
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8616);
+/* harmony import */ var _components_chip__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5179);
+/* harmony import */ var _components_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2079);
+/* harmony import */ var _context_AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1431);
+/* harmony import */ var _hooks_useFilteredMedias__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3355);
+/* harmony import */ var _hooks_useKeywordSelection__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2391);
+/* harmony import */ var _hooks_usePageActive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7514);
+
+
+
+
+
+
+
+
+
+const PAGE_FADE_TIME = {
+    header: 500,
+    keywordChips: 500,
+    livesSection: 1000,
+    conferencesSection: 1500,
+};
+function TalkPage() {
+    const app = (0,_context_AppContext__WEBPACK_IMPORTED_MODULE_3__/* .useApp */ .qD)();
+    const active = (0,_hooks_usePageActive__WEBPACK_IMPORTED_MODULE_6__/* .usePageActive */ .t)(0);
+    const { t } = (0,react_i18next__WEBPACK_IMPORTED_MODULE_7__/* .useTranslation */ .$)();
+    const keywordSelection = (0,_hooks_useKeywordSelection__WEBPACK_IMPORTED_MODULE_5__/* .useKeywordSelection */ .C)(app.schema.talk.lives, app.schema.talk.conferences);
+    const filteredLives = (0,_hooks_useFilteredMedias__WEBPACK_IMPORTED_MODULE_4__/* .useFilteredMedias */ .T)(app.schema.talk.lives, keywordSelection);
+    const filteredConferences = (0,_hooks_useFilteredMedias__WEBPACK_IMPORTED_MODULE_4__/* .useFilteredMedias */ .T)(app.schema.talk.conferences, keywordSelection);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .Page */ .T3, { name: "talk", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .PageHeader */ .mr, { fadeTime: PAGE_FADE_TIME.header, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, { component: "div", sx: { mb: "30px", fontSize: { sm: "16px", lg: "18px" } }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_i18next__WEBPACK_IMPORTED_MODULE_9__/* .Trans */ .c, { i18nKey: "talk:header", children: ["Here you can find some of my ", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", { children: "talks" })] }) }) }), active && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_chip__WEBPACK_IMPORTED_MODULE_1__/* .KeywordChips */ .x, { fadeTime: PAGE_FADE_TIME.keywordChips, keywordSelection: keywordSelection }), filteredLives.length > 0 && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .MediaSection */ .Wt, { title: t("literal:lives"), fadeTime: PAGE_FADE_TIME.livesSection, keywordSelection: keywordSelection, mediaItems: filteredLives })), filteredConferences.length > 0 && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .MediaSection */ .Wt, { title: t("literal:conferences"), fadeTime: PAGE_FADE_TIME.conferencesSection, keywordSelection: keywordSelection, mediaItems: filteredConferences }))] }))] }));
+}
+
+
+/***/ })
+
+}]);
