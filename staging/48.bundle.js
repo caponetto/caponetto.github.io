@@ -1,1 +1,213 @@
-"use strict";(self.webpackChunkpersonal_webapp=self.webpackChunkpersonal_webapp||[]).push([[48],{5179:(e,n,o)=>{o.d(n,{x:()=>d});var t=o(5893),s=o(6628),i=o(5725),r=o(8396),c=o(7294),l=o(4056),a=o(549);function d(e){const{t:n}=(0,l.$)(),o=(0,r.Z)((e=>e.breakpoints.down("sm"))),d=(0,c.useCallback)((e=>n(`literal:${e}`)),[n]);return(0,t.jsx)(s.Z,{in:!0,timeout:e.fadeTime,children:(0,t.jsxs)(i.ZP,{container:!0,rowSpacing:o?1:2,columnSpacing:1,children:[[...e.keywordSelection.selectionMap.keys()].sort(((e,n)=>d(e).localeCompare(d(n)))).map((n=>(0,t.jsx)(i.ZP,{item:!0,children:(0,t.jsx)(a.m,{label:d(n),color:"success",variant:e.keywordSelection.selectionMap.get(n)?"filled":"outlined",size:o?"small":"medium",onClick:()=>e.keywordSelection.onToggleSelection(n)})},`keyword-chip-${n}`))),(0,t.jsx)(s.Z,{in:e.keywordSelection.isAnySelected,timeout:300,children:(0,t.jsx)(i.ZP,{item:!0,sx:{display:e.keywordSelection.isAnySelected?"block":"none"},children:(0,t.jsx)(a.m,{label:n("literal:showAll"),color:"secondary",variant:"filled",size:o?"small":"medium",onClick:e.keywordSelection.onClearSelection})})})]})})}},3355:(e,n,o)=>{o.d(n,{T:()=>s});var t=o(7294);function s(e,n){return(0,t.useMemo)((()=>(n.isAnySelected?e.filter((e=>e.keywordKeys.some((e=>n.selectionMap.get(e))))):e).sort(((e,n)=>n.releaseDate.getTime()-e.releaseDate.getTime()))),[n.isAnySelected,n.selectionMap,e])}},2391:(e,n,o)=>{o.d(n,{C:()=>r});var t,s=o(7294),i=o(6974);function r(...e){const n=(0,i.s0)(),o=function(e){const n=(0,i.TH)(),o=new URLSearchParams(n.search).get(e);if(o)return decodeURIComponent(o)}(t.KEYWORDS)?.split(",")??[],[r,c]=(0,s.useState)((()=>{const n=function(...e){const n=new Map;return e.forEach((e=>{e.reduce(((e,n)=>e.concat(n.keywordKeys)),[]).forEach((e=>{n.has(e)||n.set(e,!1)}))})),n}(...e);return o.forEach((e=>{n.has(e)&&n.set(e,!0)})),n})),[l,a]=(0,s.useState)((()=>[...r.entries()].filter((([,e])=>e)).map((([e])=>e)))),d=(0,s.useMemo)((()=>l.length>0),[l]);return(0,s.useEffect)((()=>{var e;n({search:d?"?"+(e=l,`${t.KEYWORDS}=${encodeURIComponent(e.join(","))}`):""},{replace:!0})}),[n,l,d]),{selectionMap:r,onToggleSelection:e=>{if(!r.has(e))return;const n=!!r.get(e);c((o=>new Map([...o.entries(),[e,!n]]))),a((o=>n?o.filter((n=>n!==e)):[...o,e]))},onClearSelection:()=>{c((e=>{const n=new Map(e);return l.forEach((e=>n.set(e,!1))),n})),a([])},isAnySelected:d}}!function(e){e.KEYWORDS="k"}(t||(t={}))},6048:(e,n,o)=>{o.r(n),o.d(n,{default:()=>u});var t=o(5893),s=o(2658),i=o(4056),r=o(8616),c=o(5179),l=o(2079),a=o(1431),d=o(3355),m=o(2391),p=o(7514);function u(){const e=(0,a.qD)(),n=(0,p.t)(0),{t:o}=(0,i.$)(),u=(0,m.C)(e.schema.code.repositories),h=(0,d.T)(e.schema.code.repositories,u);return(0,t.jsxs)(l.T3,{name:"code",children:[(0,t.jsx)(l.mr,{fadeTime:500,children:(0,t.jsx)(s.Z,{component:"div",sx:{mb:"30px",fontSize:{sm:"16px",lg:"18px"}},children:(0,t.jsxs)(r.c,{i18nKey:"code:header",children:["Here you can find some of my ",(0,t.jsx)("strong",{children:"code"})]})})}),n&&(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(c.x,{fadeTime:500,keywordSelection:u}),h.length>0&&(0,t.jsx)(l.Wt,{title:o("literal:repositories"),fadeTime:1e3,keywordSelection:u,mediaItems:h})]})]})}}}]);
+"use strict";
+(self["webpackChunkpersonal_webapp"] = self["webpackChunkpersonal_webapp"] || []).push([[48],{
+
+/***/ 5179:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "x": () => (/* reexport */ KeywordChips)
+});
+
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./node_modules/@mui/material/Fade/Fade.js
+var Fade = __webpack_require__(6628);
+// EXTERNAL MODULE: ./node_modules/@mui/material/Grid/Grid.js + 2 modules
+var Grid = __webpack_require__(5725);
+// EXTERNAL MODULE: ./node_modules/@mui/material/useMediaQuery/useMediaQuery.js
+var useMediaQuery = __webpack_require__(8396);
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/react-i18next/dist/es/useTranslation.js + 2 modules
+var useTranslation = __webpack_require__(4056);
+// EXTERNAL MODULE: ./src/components/chip/StaticChip.tsx
+var StaticChip = __webpack_require__(549);
+;// CONCATENATED MODULE: ./src/components/chip/KeywordChips.tsx
+
+
+
+
+
+
+
+function KeywordChips(props) {
+    const { t } = (0,useTranslation/* useTranslation */.$)();
+    const isSmall = (0,useMediaQuery/* default */.Z)((theme) => theme.breakpoints.down("sm"));
+    const resolveLiteral = (0,react.useCallback)((key) => t(`literal:${key}`), [t]);
+    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime, children: (0,jsx_runtime.jsxs)(Grid/* default */.ZP, { container: true, rowSpacing: isSmall ? 1 : 2, columnSpacing: 1, children: [[...props.keywordSelection.selectionMap.keys()]
+                    .sort((a, b) => resolveLiteral(a).localeCompare(resolveLiteral(b)))
+                    .map((keywordKey) => ((0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, children: (0,jsx_runtime.jsx)(StaticChip/* StaticChip */.m, { label: resolveLiteral(keywordKey), color: "success", variant: props.keywordSelection.selectionMap.get(keywordKey) ? "filled" : "outlined", size: isSmall ? "small" : "medium", onClick: () => props.keywordSelection.onToggleSelection(keywordKey) }) }, `keyword-chip-${keywordKey}`))), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: props.keywordSelection.isAnySelected, timeout: 300, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, sx: { display: props.keywordSelection.isAnySelected ? "block" : "none" }, children: (0,jsx_runtime.jsx)(StaticChip/* StaticChip */.m, { label: t("literal:showAll"), color: "secondary", variant: "filled", size: isSmall ? "small" : "medium", onClick: props.keywordSelection.onClearSelection }) }) })] }) }));
+}
+
+;// CONCATENATED MODULE: ./src/components/chip/index.tsx
+
+
+
+/***/ }),
+
+/***/ 3355:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "T": () => (/* binding */ useFilteredMedias)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7294);
+
+function useFilteredMedias(items, keywordSelection) {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+        const filteredItems = keywordSelection.isAnySelected
+            ? items.filter((item) => item.keywordKeys.some((keyword) => keywordSelection.selectionMap.get(keyword)))
+            : items;
+        return filteredItems.sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime());
+    }, [keywordSelection.isAnySelected, keywordSelection.selectionMap, items]);
+}
+
+
+/***/ }),
+
+/***/ 2391:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "C": () => (/* binding */ useKeywordSelection)
+});
+
+// UNUSED EXPORTS: buildInitialSelectionMap
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(7294);
+// EXTERNAL MODULE: ./node_modules/react-router/index.js
+var react_router = __webpack_require__(6974);
+;// CONCATENATED MODULE: ./src/hooks/useQueryParam.tsx
+
+var QueryParams;
+(function (QueryParams) {
+    QueryParams["KEYWORDS"] = "k";
+})(QueryParams || (QueryParams = {}));
+function useQueryParam(name) {
+    const location = (0,react_router/* useLocation */.TH)();
+    const urlSearchParams = new URLSearchParams(location.search);
+    const value = urlSearchParams.get(name);
+    if (!value) {
+        return;
+    }
+    return decodeURIComponent(value);
+}
+function useQueryParamKeywords() {
+    return useQueryParam(QueryParams.KEYWORDS)?.split(",") ?? [];
+}
+function prepareKeywordsQueryParam(keywords) {
+    return `${QueryParams.KEYWORDS}=${encodeURIComponent(keywords.join(","))}`;
+}
+
+;// CONCATENATED MODULE: ./src/hooks/useKeywordSelection.tsx
+
+
+
+function buildInitialSelectionMap(...arrayOfArrays) {
+    const initialSelectionMap = new Map();
+    arrayOfArrays.forEach((items) => {
+        items
+            .reduce((keywordArray, m) => keywordArray.concat(m.keywordKeys), [])
+            .forEach((keyword) => {
+            if (!initialSelectionMap.has(keyword)) {
+                initialSelectionMap.set(keyword, false);
+            }
+        });
+    });
+    return initialSelectionMap;
+}
+function useKeywordSelection(...arrayOfArrays) {
+    const navigate = (0,react_router/* useNavigate */.s0)();
+    const queryParamKeywords = useQueryParamKeywords();
+    const [selectionMap, setSelectionMap] = (0,react.useState)(() => {
+        const map = buildInitialSelectionMap(...arrayOfArrays);
+        queryParamKeywords.forEach((k) => {
+            if (map.has(k)) {
+                map.set(k, true);
+            }
+        });
+        return map;
+    });
+    const [selected, setSelected] = (0,react.useState)(() => [...selectionMap.entries()].filter(([, isSelected]) => isSelected).map(([keyword]) => keyword));
+    const isAnySelected = (0,react.useMemo)(() => selected.length > 0, [selected]);
+    const onToggleSelection = (keyword) => {
+        if (!selectionMap.has(keyword)) {
+            return;
+        }
+        const isSelected = !!selectionMap.get(keyword);
+        setSelectionMap((prevState) => new Map([...prevState.entries(), [keyword, !isSelected]]));
+        setSelected((prevState) => (isSelected ? prevState.filter((k) => k !== keyword) : [...prevState, keyword]));
+    };
+    const onClearSelection = () => {
+        setSelectionMap((prevState) => {
+            const newMap = new Map(prevState);
+            selected.forEach((keyword) => newMap.set(keyword, false));
+            return newMap;
+        });
+        setSelected([]);
+    };
+    (0,react.useEffect)(() => {
+        navigate({
+            search: isAnySelected ? `?${prepareKeywordsQueryParam(selected)}` : "",
+        }, { replace: true });
+    }, [navigate, selected, isAnySelected]);
+    return {
+        selectionMap,
+        onToggleSelection,
+        onClearSelection,
+        isAnySelected,
+    };
+}
+
+
+/***/ }),
+
+/***/ 6048:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CodePage)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2658);
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4056);
+/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8616);
+/* harmony import */ var _components_chip__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5179);
+/* harmony import */ var _components_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2079);
+/* harmony import */ var _context_AppContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1431);
+/* harmony import */ var _hooks_useFilteredMedias__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3355);
+/* harmony import */ var _hooks_useKeywordSelection__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2391);
+/* harmony import */ var _hooks_usePageActive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7514);
+
+
+
+
+
+
+
+
+
+const PAGE_FADE_TIME = {
+    header: 500,
+    keywordChips: 500,
+    repositoriesSection: 1000,
+};
+function CodePage() {
+    const app = (0,_context_AppContext__WEBPACK_IMPORTED_MODULE_3__/* .useApp */ .qD)();
+    const active = (0,_hooks_usePageActive__WEBPACK_IMPORTED_MODULE_6__/* .usePageActive */ .t)(0);
+    const { t } = (0,react_i18next__WEBPACK_IMPORTED_MODULE_7__/* .useTranslation */ .$)();
+    const keywordSelection = (0,_hooks_useKeywordSelection__WEBPACK_IMPORTED_MODULE_5__/* .useKeywordSelection */ .C)(app.schema.code.repositories);
+    const filteredRepositories = (0,_hooks_useFilteredMedias__WEBPACK_IMPORTED_MODULE_4__/* .useFilteredMedias */ .T)(app.schema.code.repositories, keywordSelection);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .Page */ .T3, { name: "code", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .PageHeader */ .mr, { fadeTime: PAGE_FADE_TIME.header, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, { component: "div", sx: { mb: "30px", fontSize: { sm: "16px", lg: "18px" } }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_i18next__WEBPACK_IMPORTED_MODULE_9__/* .Trans */ .c, { i18nKey: "code:header", children: ["Here you can find some of my ", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", { children: "code" })] }) }) }), active && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_chip__WEBPACK_IMPORTED_MODULE_1__/* .KeywordChips */ .x, { fadeTime: PAGE_FADE_TIME.keywordChips, keywordSelection: keywordSelection }), filteredRepositories.length > 0 && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .MediaSection */ .Wt, { title: t("literal:repositories"), fadeTime: PAGE_FADE_TIME.repositoriesSection, keywordSelection: keywordSelection, mediaItems: filteredRepositories }))] }))] }));
+}
+
+
+/***/ })
+
+}]);
