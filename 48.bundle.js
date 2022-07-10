@@ -32,11 +32,12 @@ var StaticChip = __webpack_require__(549);
 
 
 
+const DEFAULT_FADE_TIME = 500;
 function KeywordChips(props) {
     const { t } = (0,useTranslation/* useTranslation */.$)();
     const isSmall = (0,useMediaQuery/* default */.Z)((theme) => theme.breakpoints.down("sm"));
     const resolveLiteral = (0,react.useCallback)((key) => t(`literal:${key}`), [t]);
-    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime, children: (0,jsx_runtime.jsxs)(Grid/* default */.ZP, { container: true, rowSpacing: isSmall ? 1 : 2, columnSpacing: 1, children: [[...props.keywordSelection.selectionMap.keys()]
+    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime ?? DEFAULT_FADE_TIME, children: (0,jsx_runtime.jsxs)(Grid/* default */.ZP, { container: true, rowSpacing: isSmall ? 1 : 2, columnSpacing: 1, children: [[...props.keywordSelection.selectionMap.keys()]
                     .sort((a, b) => resolveLiteral(a).localeCompare(resolveLiteral(b)))
                     .map((keywordKey) => ((0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, children: (0,jsx_runtime.jsx)(StaticChip/* StaticChip */.m, { label: resolveLiteral(keywordKey), color: "success", variant: props.keywordSelection.selectionMap.get(keywordKey) ? "filled" : "outlined", size: isSmall ? "small" : "medium", onClick: () => props.keywordSelection.onToggleSelection(keywordKey) }) }, `keyword-chip-${keywordKey}`))), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: props.keywordSelection.isAnySelected, timeout: 300, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, sx: { display: props.keywordSelection.isAnySelected ? "block" : "none" }, children: (0,jsx_runtime.jsx)(StaticChip/* StaticChip */.m, { label: t("literal:showAll"), color: "secondary", variant: "filled", size: isSmall ? "small" : "medium", onClick: props.keywordSelection.onClearSelection }) }) })] }) }));
 }
@@ -193,18 +194,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const PAGE_FADE_TIME = {
-    header: 500,
-    keywordChips: 500,
-    repositoriesSection: 1000,
-};
 function CodePage() {
     const app = (0,_context_AppContext__WEBPACK_IMPORTED_MODULE_3__/* .useApp */ .qD)();
     const active = (0,_hooks_usePageActive__WEBPACK_IMPORTED_MODULE_6__/* .usePageActive */ .t)(0);
     const { t } = (0,react_i18next__WEBPACK_IMPORTED_MODULE_7__/* .useTranslation */ .$)();
     const keywordSelection = (0,_hooks_useKeywordSelection__WEBPACK_IMPORTED_MODULE_5__/* .useKeywordSelection */ .C)(app.schema.code.repositories);
     const filteredRepositories = (0,_hooks_useFilteredMedias__WEBPACK_IMPORTED_MODULE_4__/* .useFilteredMedias */ .T)(app.schema.code.repositories, keywordSelection);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .Page */ .T3, { name: "code", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .PageHeader */ .mr, { fadeTime: PAGE_FADE_TIME.header, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, { component: "div", sx: { mb: "30px", fontSize: { sm: "16px", lg: "18px" } }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_i18next__WEBPACK_IMPORTED_MODULE_9__/* .Trans */ .c, { i18nKey: "code:header", children: ["Here you can find some of my ", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", { children: "code" })] }) }) }), active && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_chip__WEBPACK_IMPORTED_MODULE_1__/* .KeywordChips */ .x, { fadeTime: PAGE_FADE_TIME.keywordChips, keywordSelection: keywordSelection }), filteredRepositories.length > 0 && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .MediaSection */ .Wt, { title: t("literal:repositories"), fadeTime: PAGE_FADE_TIME.repositoriesSection, keywordSelection: keywordSelection, mediaItems: filteredRepositories }))] }))] }));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .Page */ .T3, { name: "code", children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .PageHeader */ .mr, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, { component: "div", sx: { mb: "30px", fontSize: { sm: "16px", lg: "18px" } }, children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_i18next__WEBPACK_IMPORTED_MODULE_9__/* .Trans */ .c, { i18nKey: "code:header", children: ["Here you can find some of my ", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", { children: "code" })] }) }) }), active && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_chip__WEBPACK_IMPORTED_MODULE_1__/* .KeywordChips */ .x, { keywordSelection: keywordSelection }), filteredRepositories.length > 0 && ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_page__WEBPACK_IMPORTED_MODULE_2__/* .MediaSection */ .Wt, { title: t("literal:repositories"), keywordSelection: keywordSelection, mediaItems: filteredRepositories }))] }))] }));
 }
 
 

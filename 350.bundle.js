@@ -52,6 +52,8 @@ var Typography = __webpack_require__(2658);
 var format = __webpack_require__(3267);
 // EXTERNAL MODULE: ./node_modules/date-fns/esm/locale/pt-BR/index.js + 5 modules
 var pt_BR = __webpack_require__(8994);
+// EXTERNAL MODULE: ./node_modules/date-fns/esm/locale/es/index.js + 5 modules
+var es = __webpack_require__(1655);
 // EXTERNAL MODULE: ./node_modules/date-fns/esm/locale/en-US/index.js + 5 modules
 var en_US = __webpack_require__(1695);
 // EXTERNAL MODULE: ./node_modules/react-i18next/dist/es/useTranslation.js + 2 modules
@@ -104,14 +106,25 @@ function MediaCard(props) {
         }
         return t("literal:view");
     }, [props.item.kind, t]);
+    const dateLocale = (0,react.useMemo)(() => {
+        switch (i18n.resolvedLanguage) {
+            case src_i18n/* SupportedLanguages.Portuguese */.i.Portuguese:
+                return pt_BR/* default */.Z;
+            case src_i18n/* SupportedLanguages.Spanish */.i.Spanish:
+                return es/* default */.Z;
+            case src_i18n/* SupportedLanguages.English */.i.English:
+            default:
+                return en_US/* default */.Z;
+        }
+    }, [i18n.resolvedLanguage]);
     const formattedMediaDate = (0,react.useMemo)(() => {
         if (["code", "thesis"].includes(props.item.kind)) {
             return (0,format/* default */.Z)(props.item.releaseDate, "yyyy");
         }
         return (0,format/* default */.Z)(props.item.releaseDate, "PPP", {
-            locale: i18n.resolvedLanguage === src_i18n/* SupportedLanguages.PT */.i.PT ? pt_BR/* default */.Z : en_US/* default */.Z,
+            locale: dateLocale,
         });
-    }, [props.item.kind, props.item.releaseDate, i18n.resolvedLanguage]);
+    }, [dateLocale, props.item.kind, props.item.releaseDate]);
     const publicationIcon = (0,react.useMemo)(() => {
         switch (props.item.publication) {
             case "kieCommunity":
@@ -201,8 +214,12 @@ var card = __webpack_require__(7015);
 
 
 
+const DEFAULT_FADE_TIME = {
+    title: 500,
+    item: 1000,
+};
 function MediaSection(props) {
-    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime, children: (0,jsx_runtime.jsxs)(Box/* default */.Z, { sx: { mt: "30px" }, children: [(0,jsx_runtime.jsx)(Divider/* default */.Z, { textAlign: "left", sx: { mb: "30px", "::before": { width: "1%" }, "::after": { width: "99%" } }, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { fontWeight: "light", variant: "overline", component: "div", sx: { fontSize: "14px", color: "text.secondary" }, children: props.title }) }), (0,jsx_runtime.jsx)(Grid/* default */.ZP, { container: true, spacing: 3, children: props.mediaItems.map((item, idx) => ((0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, sx: { width: { xs: "100%", lg: "50%", xl: "33%" } }, children: (0,jsx_runtime.jsx)(card/* MediaCard */.P, { item: item, keywordSelection: props.keywordSelection }) }, `${props.title}-${idx}`))) })] }) }));
+    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime?.title ?? DEFAULT_FADE_TIME.title, children: (0,jsx_runtime.jsxs)(Box/* default */.Z, { sx: { mt: "30px" }, children: [(0,jsx_runtime.jsx)(Divider/* default */.Z, { textAlign: "left", sx: { mb: "30px", "::before": { width: "1%" }, "::after": { width: "99%" } }, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { fontWeight: "light", variant: "overline", component: "div", sx: { fontSize: "14px", color: "text.secondary" }, children: props.title }) }), (0,jsx_runtime.jsx)(Grid/* default */.ZP, { container: true, spacing: 3, children: props.mediaItems.map((item, idx) => ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime?.item ?? DEFAULT_FADE_TIME.item, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, sx: { width: { xs: "100%", lg: "50%", xl: "33%" } }, children: (0,jsx_runtime.jsx)(card/* MediaCard */.P, { item: item, keywordSelection: props.keywordSelection }) }) }, `${props.title}-${idx}`))) })] }) }));
 }
 
 ;// CONCATENATED MODULE: ./src/components/page/Page.tsx
@@ -216,8 +233,9 @@ function Page(props) {
 
 
 
+const PageHeader_DEFAULT_FADE_TIME = 500;
 function PageHeader(props) {
-    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime, children: (0,jsx_runtime.jsx)(Box/* default */.Z, { children: props.children }) }));
+    return ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: props.fadeTime ?? PageHeader_DEFAULT_FADE_TIME, children: (0,jsx_runtime.jsx)(Box/* default */.Z, { children: props.children }) }));
 }
 
 ;// CONCATENATED MODULE: ./src/components/page/index.tsx
@@ -473,13 +491,13 @@ var routes = __webpack_require__(4399);
 
 
 
-const PAGE_FADE_TIME = {
-    content: 1000,
+const FADE_TIME = {
+    card: 500,
 };
 function AboutPage() {
     const app = (0,AppContext/* useApp */.qD)();
     const active = (0,usePageActive/* usePageActive */.t)(0);
-    return ((0,jsx_runtime.jsx)(page/* Page */.T3, { name: "about", children: active && ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: PAGE_FADE_TIME.content, children: (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsxs)(card/* HoverableCard */.s, { sx: { p: "28px", width: { xs: "100%", xl: "1170px" }, margin: "0 auto" }, children: [(0,jsx_runtime.jsxs)(Stack_Stack, { spacing: 4, children: [(0,jsx_runtime.jsx)(Typography/* default */.Z, { component: "div", sx: {
+    return ((0,jsx_runtime.jsx)(page/* Page */.T3, { name: "about", children: active && ((0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: FADE_TIME.card, children: (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsxs)(card/* HoverableCard */.s, { sx: { p: "28px", width: { xs: "100%", xl: "1170px" }, margin: "0 auto" }, children: [(0,jsx_runtime.jsxs)(Stack_Stack, { spacing: 4, children: [(0,jsx_runtime.jsx)(Typography/* default */.Z, { component: "div", sx: {
                                         textAlign: "center",
                                         fontWeight: "bold",
                                         fontFamily: fonts/* Fonts.PHILOSOPHER */.F.PHILOSOPHER,

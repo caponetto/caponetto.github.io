@@ -22235,23 +22235,25 @@ var context = __webpack_require__(8718);
 
 var SupportedLanguages;
 (function (SupportedLanguages) {
-    SupportedLanguages["EN"] = "en";
-    SupportedLanguages["PT"] = "pt";
+    SupportedLanguages["English"] = "en";
+    SupportedLanguages["Portuguese"] = "pt";
+    SupportedLanguages["Spanish"] = "es";
 })(SupportedLanguages || (SupportedLanguages = {}));
-const contextPath = "";
+const CONTEXT_PATH = "";
+const NAMESPACES = ["about", "code", "common", "drawer", "journey", "literal", "personal", "talk", "text"];
 i18next.use(esm)
     .use(Browser)
     .use(context/* initReactI18next */.Db)
     .init({
-    fallbackLng: SupportedLanguages.EN,
+    fallbackLng: SupportedLanguages.English,
     supportedLngs: Object.values(SupportedLanguages),
-    ns: ["about", "code", "common", "drawer", "journey", "literal", "personal", "talk", "text"],
+    ns: NAMESPACES,
     interpolation: {
         escapeValue: false,
     },
     debug: false,
     backend: {
-        loadPath: `${contextPath}/static/locales/{{lng}}/{{ns}}.json`,
+        loadPath: `${CONTEXT_PATH}/static/locales/{{lng}}/{{ns}}.json`,
     },
 });
 /* harmony default export */ const i18n = (i18next);
@@ -26892,7 +26894,7 @@ function SettingsPopover(props) {
         }, transformOrigin: {
             vertical: "top",
             horizontal: "right",
-        }, children: (0,jsx_runtime.jsxs)(Box/* default */.Z, { sx: { width: "180px", px: "8px", py: "12px", display: "flex" }, children: [(0,jsx_runtime.jsxs)(Box/* default */.Z, { sx: { flexGrow: 1, pl: "5px" }, children: [(0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsxs)(FormControl_FormControl, { sx: { width: "100%" }, children: [(0,jsx_runtime.jsx)(FormLabel_FormLabel, { id: "theme-form", focused: false, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { variant: "overline", children: t("literal:theme") }) }), (0,jsx_runtime.jsxs)(RadioGroup_RadioGroup, { "aria-labelledby": "theme-form", value: app.colorMode, onChange: (event) => appDispatch.updateColorMode(event.target.value), name: "theme-group", children: [(0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: "light", control: smallRadioButton, label: t("literal:light").toString() }), (0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: "dark", control: smallRadioButton, label: t("literal:dark").toString() })] })] }) }), (0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsxs)(FormControl_FormControl, { sx: { width: "100%" }, children: [(0,jsx_runtime.jsx)(FormLabel_FormLabel, { id: "language-form", focused: false, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { variant: "overline", children: t("literal:language") }) }), (0,jsx_runtime.jsxs)(RadioGroup_RadioGroup, { "aria-labelledby": "language-form", value: i18n.resolvedLanguage, onChange: (event) => i18n.changeLanguage(event.target.value), name: "language-group", children: [(0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: src_i18n/* SupportedLanguages.EN */.i.EN, control: smallRadioButton, label: "English" }), (0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: src_i18n/* SupportedLanguages.PT */.i.PT, control: smallRadioButton, label: "Português" })] })] }) }), (0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsxs)(FormControl_FormControl, { sx: { width: "100%" }, children: [(0,jsx_runtime.jsx)(FormLabel_FormLabel, { id: "version-form", focused: false, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { variant: "overline", children: t("literal:version") }) }), (0,jsx_runtime.jsx)(Typography/* default */.Z, { color: "gray", variant: "body2", children: "v1.5.0"?.substring(0, 12) })] }) })] }), (0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsx)(IconButton/* default */.Z, { id: "close-settings-button", onClick: props.onClose, size: "small", color: "inherit", "aria-label": "Close settings", children: (0,jsx_runtime.jsx)(Close/* default */.Z, { fontSize: "small" }) }) })] }) }));
+        }, children: (0,jsx_runtime.jsxs)(Box/* default */.Z, { sx: { width: "180px", px: "8px", py: "12px", display: "flex" }, children: [(0,jsx_runtime.jsxs)(Box/* default */.Z, { sx: { flexGrow: 1, pl: "5px" }, children: [(0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsxs)(FormControl_FormControl, { sx: { width: "100%" }, children: [(0,jsx_runtime.jsx)(FormLabel_FormLabel, { id: "theme-form", focused: false, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { variant: "overline", children: t("literal:theme") }) }), (0,jsx_runtime.jsxs)(RadioGroup_RadioGroup, { "aria-labelledby": "theme-form", value: app.colorMode, onChange: (event) => appDispatch.updateColorMode(event.target.value), name: "theme-group", children: [(0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: "light", control: smallRadioButton, label: t("literal:light").toString() }), (0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: "dark", control: smallRadioButton, label: t("literal:dark").toString() })] })] }) }), (0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsxs)(FormControl_FormControl, { sx: { width: "100%" }, children: [(0,jsx_runtime.jsx)(FormLabel_FormLabel, { id: "language-form", focused: false, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { variant: "overline", children: t("literal:language") }) }), (0,jsx_runtime.jsxs)(RadioGroup_RadioGroup, { "aria-labelledby": "language-form", value: i18n.resolvedLanguage, onChange: (event) => i18n.changeLanguage(event.target.value), name: "language-group", children: [(0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: src_i18n/* SupportedLanguages.English */.i.English, control: smallRadioButton, label: "English" }), (0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: src_i18n/* SupportedLanguages.Portuguese */.i.Portuguese, control: smallRadioButton, label: "Português" }), (0,jsx_runtime.jsx)(FormControlLabel_FormControlLabel, { value: src_i18n/* SupportedLanguages.Spanish */.i.Spanish, control: smallRadioButton, label: "Español" })] })] }) }), (0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsxs)(FormControl_FormControl, { sx: { width: "100%" }, children: [(0,jsx_runtime.jsx)(FormLabel_FormLabel, { id: "version-form", focused: false, children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { variant: "overline", children: t("literal:version") }) }), (0,jsx_runtime.jsx)(Typography/* default */.Z, { color: "gray", variant: "body2", children: "v1.6.0"?.substring(0, 12) })] }) })] }), (0,jsx_runtime.jsx)(Box/* default */.Z, { children: (0,jsx_runtime.jsx)(IconButton/* default */.Z, { id: "close-settings-button", onClick: props.onClose, size: "small", color: "inherit", "aria-label": "Close settings", children: (0,jsx_runtime.jsx)(Close/* default */.Z, { fontSize: "small" }) }) })] }) }));
 }
 
 ;// CONCATENATED MODULE: ./src/components/settings/index.tsx
@@ -30764,11 +30766,11 @@ function AppContextProvider(props) {
 
 
 
-const AboutPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(195), __webpack_require__.e(350)]).then(__webpack_require__.bind(__webpack_require__, 2350)));
-const JourneyPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(195), __webpack_require__.e(588), __webpack_require__.e(868)]).then(__webpack_require__.bind(__webpack_require__, 6868)));
-const TextPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(195), __webpack_require__.e(588), __webpack_require__.e(76)]).then(__webpack_require__.bind(__webpack_require__, 7076)));
-const TalkPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(195), __webpack_require__.e(588), __webpack_require__.e(209)]).then(__webpack_require__.bind(__webpack_require__, 4209)));
-const CodePage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(195), __webpack_require__.e(588), __webpack_require__.e(48)]).then(__webpack_require__.bind(__webpack_require__, 6048)));
+const AboutPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(180), __webpack_require__.e(350)]).then(__webpack_require__.bind(__webpack_require__, 2350)));
+const JourneyPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(180), __webpack_require__.e(588), __webpack_require__.e(868)]).then(__webpack_require__.bind(__webpack_require__, 6868)));
+const TextPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(180), __webpack_require__.e(588), __webpack_require__.e(76)]).then(__webpack_require__.bind(__webpack_require__, 7076)));
+const TalkPage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(180), __webpack_require__.e(588), __webpack_require__.e(209)]).then(__webpack_require__.bind(__webpack_require__, 4209)));
+const CodePage = (0,react.lazy)(() => Promise.all(/* import() */[__webpack_require__.e(180), __webpack_require__.e(588), __webpack_require__.e(48)]).then(__webpack_require__.bind(__webpack_require__, 6048)));
 function RouteSwitch() {
     const navigateToAbout = (0,jsx_runtime.jsx)(react_router/* Navigate */.Fg, { to: routes/* routes.nav.about */._.nav.about, replace: true });
     return ((0,jsx_runtime.jsxs)(react_router/* Routes */.Z5, { children: [(0,jsx_runtime.jsx)(react_router/* Route */.AW, { path: routes/* routes.nav.root */._.nav.root, element: navigateToAbout }), (0,jsx_runtime.jsx)(react_router/* Route */.AW, { path: routes/* routes.nav.about */._.nav.about, element: (0,jsx_runtime.jsx)(AboutPage, {}) }), (0,jsx_runtime.jsx)(react_router/* Route */.AW, { path: routes/* routes.nav.journey */._.nav.journey, element: (0,jsx_runtime.jsx)(JourneyPage, {}) }), (0,jsx_runtime.jsx)(react_router/* Route */.AW, { path: routes/* routes.nav.text */._.nav.text, element: (0,jsx_runtime.jsx)(TextPage, {}) }), (0,jsx_runtime.jsx)(react_router/* Route */.AW, { path: routes/* routes.nav.talk */._.nav.talk, element: (0,jsx_runtime.jsx)(TalkPage, {}) }), (0,jsx_runtime.jsx)(react_router/* Route */.AW, { path: routes/* routes.nav.code */._.nav.code, element: (0,jsx_runtime.jsx)(CodePage, {}) }), (0,jsx_runtime.jsx)(react_router/* Route */.AW, { path: routes/* routes.nav.any */._.nav.any, element: navigateToAbout })] }));
