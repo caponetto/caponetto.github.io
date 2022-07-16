@@ -1,6 +1,31 @@
 "use strict";
 (self["webpackChunkpersonal_webapp"] = self["webpackChunkpersonal_webapp"] || []).push([[436],{
 
+/***/ 5089:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var __webpack_unused_export__;
+
+
+var _interopRequireDefault = __webpack_require__(5318);
+
+__webpack_unused_export__ = ({
+  value: true
+});
+exports.Z = void 0;
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(4938));
+
+var _jsxRuntime = __webpack_require__(5893);
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"
+}), 'EmojiEvents');
+
+exports.Z = _default;
+
+/***/ }),
+
 /***/ 7275:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -116,6 +141,8 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(5893);
+// EXTERNAL MODULE: ./node_modules/@mui/icons-material/EmojiEvents.js
+var EmojiEvents = __webpack_require__(5089);
 // EXTERNAL MODULE: ./node_modules/@mui/icons-material/HomeRepairServiceOutlined.js
 var HomeRepairServiceOutlined = __webpack_require__(7275);
 // EXTERNAL MODULE: ./node_modules/@mui/icons-material/SchoolOutlined.js
@@ -219,11 +246,13 @@ function JourneyList(props) {
 
 
 
+
 const SECTION_FADE_TIME = {
     education: 1000,
     certifications: 1200,
-    toolbox: 1400,
-    experience: 1600,
+    awards: 1400,
+    toolbox: 1600,
+    experience: 1800,
 };
 function JourneyPage() {
     const app = (0,AppContext/* useApp */.q)();
@@ -231,7 +260,7 @@ function JourneyPage() {
     const active = (0,usePageActive/* usePageActive */.t)(0);
     return ((0,jsx_runtime.jsxs)(page/* Page */.T3, { name: "journey", children: [(0,jsx_runtime.jsx)(page/* PageHeader */.mr, { children: (0,jsx_runtime.jsx)(Typography/* default */.Z, { component: "div", sx: { mb: "30px", fontSize: { sm: "16px", lg: "18px" } }, children: (0,jsx_runtime.jsxs)(Trans/* Trans */.c, { i18nKey: "journey:header", children: ["Here you can see my ", (0,jsx_runtime.jsx)("strong", { children: "journey" }), " summary"] }) }) }), active && ((0,jsx_runtime.jsxs)(Grid/* default */.ZP, { container: true, spacing: 2, children: [(0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, xs: 12, lg: 7, children: (0,jsx_runtime.jsxs)(Grid/* default */.ZP, { container: true, spacing: 2, children: [(0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: SECTION_FADE_TIME.education, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, xs: 12, xl: 6, children: (0,jsx_runtime.jsx)(JourneyCard, { title: t("literal:education"), icon: (0,jsx_runtime.jsx)(SchoolOutlined/* default */.Z, {}), content: (0,jsx_runtime.jsx)(JourneyList, { kind: "education", items: app.schema.journey.education }) }) }) }), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: SECTION_FADE_TIME.certifications, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, xs: 12, xl: 6, children: (0,jsx_runtime.jsx)(JourneyCard, { title: t("literal:certifications"), icon: (0,jsx_runtime.jsx)(VerifiedOutlined/* default */.Z, {}), content: (0,jsx_runtime.jsx)(JourneyList, { kind: "certification", items: app.schema.journey.certification }) }) }) }), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: SECTION_FADE_TIME.toolbox, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, xs: 12, children: (0,jsx_runtime.jsx)(JourneyCard, { title: t("literal:toolbox"), icon: (0,jsx_runtime.jsx)(HomeRepairServiceOutlined/* default */.Z, {}), content: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { container: true, spacing: 1, children: [...app.schema.journey.toolbox]
                                                     .sort((a, b) => a.localeCompare(b))
-                                                    .map((skill) => ((0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, children: (0,jsx_runtime.jsx)(Chip/* default */.Z, { label: skill, color: "default", variant: "outlined", size: "small", sx: { borderRadius: "8px" } }) }, `skill-${skill}`))) }) }) }) })] }) }), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: SECTION_FADE_TIME.experience, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, xs: 12, lg: 5, children: (0,jsx_runtime.jsx)(JourneyCard, { title: t("literal:experience"), icon: (0,jsx_runtime.jsx)(WorkOutlineOutlined/* default */.Z, {}), content: (0,jsx_runtime.jsx)(JourneyList, { kind: "experience", items: app.schema.journey.experience }) }) }) })] }))] }));
+                                                    .map((skill) => ((0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, children: (0,jsx_runtime.jsx)(Chip/* default */.Z, { label: skill, color: "default", variant: "outlined", size: "small", sx: { borderRadius: "8px" } }) }, `skill-${skill}`))) }) }) }) }), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: SECTION_FADE_TIME.awards, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, xs: 12, xl: 6, children: (0,jsx_runtime.jsx)(JourneyCard, { title: t("literal:awards"), icon: (0,jsx_runtime.jsx)(EmojiEvents/* default */.Z, {}), content: (0,jsx_runtime.jsx)(JourneyList, { kind: "award", items: app.schema.journey.award }) }) }) })] }) }), (0,jsx_runtime.jsx)(Fade/* default */.Z, { in: true, timeout: SECTION_FADE_TIME.experience, children: (0,jsx_runtime.jsx)(Grid/* default */.ZP, { item: true, xs: 12, lg: 5, children: (0,jsx_runtime.jsx)(JourneyCard, { title: t("literal:experience"), icon: (0,jsx_runtime.jsx)(WorkOutlineOutlined/* default */.Z, {}), content: (0,jsx_runtime.jsx)(JourneyList, { kind: "experience", items: app.schema.journey.experience }) }) }) })] }))] }));
 }
 
 
