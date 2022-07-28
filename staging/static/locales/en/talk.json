@@ -1,11 +1,1 @@
-{
-  "header": "Here you can find some of my <1>talks</1>",
-  "lives": {
-    "workspaceCollaborationInBC": "Workspace collaboration in Business Central",
-    "mavenArchetypesInBC": "Maven archetype support in Business Central",
-    "streamDecisionsWithDmnAndKafka": "Streaming decisions with DMN and Kafka"
-  },
-  "conferences": {
-    "streamDecisionsWithDmnAndKafka": "Streaming suas decisões com DMN e Kafka (pt-BR)"
-  }
-}
+{"header":"Here you can find some of my <1>talks</1>","lives":{"workspaceCollaborationInBC":"Workspace collaboration in Business Central","mavenArchetypesInBC":"Maven archetype support in Business Central","streamDecisionsWithDmnAndKafka":"Streaming decisions with DMN and Kafka"},"conferences":{"streamDecisionsWithDmnAndKafka":"Streaming suas decisões com DMN e Kafka (pt-BR)"}}
