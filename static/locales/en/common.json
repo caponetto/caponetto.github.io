@@ -1,12 +1,1 @@
-{
-  "social": {
-    "tooltip": "{{kind}} Profile"
-  },
-  "location": {
-    "tooltip": "Currently based on {{location}}"
-  },
-  "copyright": "© {{year}} {{name}}",
-  "messages": {
-    "storedCookies": "Your preferences are saved in your browser storage."
-  }
-}
+{"social":{"tooltip":"{{kind}} Profile"},"location":{"tooltip":"Currently based on {{location}}"},"copyright":"© {{year}} {{name}}","messages":{"storedCookies":"Your preferences are saved in your browser storage."}}
